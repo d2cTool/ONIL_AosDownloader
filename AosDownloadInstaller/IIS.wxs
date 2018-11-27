@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension">
+  <?include Variables.wxi?>
+	<Fragment>
+      <Component Id="AosWebAppPoolComponent" Guid="{99FF06AA-9142-4E96-BF58-8AFDE7984E6D}" KeyPath="yes" Directory="INSTALLLOCATION">
+        <!--Condition><![CDATA[(IISMAJORVERSION >= "#7")]]></Condition>
+        <Condition><![CDATA[WEB_APP_USE_CUSTOM_APP_POOL_IDENTITY <> 1]]></Condition-->
+        <iis:WebAppPool Id="AosWebAppPool" 
+                        Name="aos_pool"
+                        Identity="applicationPoolIdentity"
+                        ManagedPipelineMode="Integrated" 
+                        ManagedRuntimeVersion="v4.0" />
+      </Component>
+
+      <Component Id="AosWebAppComponent" Guid="{4C11C4C0-2814-4392-9F2F-271B23A77B35}" KeyPath="yes" Directory="INSTALLLOCATION">
+        <!--Condition><![CDATA[(IISMAJORVERSION >= "#7")]]></Condition-->
+        <iis:WebSite Id="AosWebSite" 
+                     Description="$(var.WebAppName)" 
+                     Directory="IISROOT" 
+                     AutoStart="yes"
+                     StartOnInstall="yes">
+          <iis:WebAddress Id="AosSiteAddress" IP="*" Port="$(var.WebServerPort)" />
+          <iis:WebVirtualDir Id="AosWebVirtualDir" Alias="$(var.WebAppName)" Directory="INSTALLLOCATION">
+            <iis:WebApplication Id="AosWebApp" Name="$(var.WebAppName)" WebAppPool="AosWebAppPool" />
+            <iis:WebDirProperties Id="AosSiteProperties" WindowsAuthentication="no" AnonymousAccess="yes"/>
+          </iis:WebVirtualDir>
+        </iis:WebSite>
+      </Component>
+  </Fragment>
+</Wix>

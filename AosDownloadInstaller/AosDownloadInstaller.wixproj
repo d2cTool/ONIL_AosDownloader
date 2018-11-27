@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" InitialTargets="EnsureWixToolsetInstalled" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Unicode Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>{527c69be-9272-4e98-a9cd-361d8ac1f187}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>AosDownloadInstaller</OutputName>
+    <OutputType>Package</OutputType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unicode Debug|x86' ">
+    <OutputPath>..\..\..\..\..\Bin\$(Configuration)\v4.0\$(OutputName)\</OutputPath>
+    <IntermediateOutputPath>..\..\..\..\..\obj\$(Configuration)\v4.0\$(OutputName)\</IntermediateOutputPath>
+    <DefineConstants>Debug;AspProjectDir=..\AosDownloadServer\obj\$(Configuration)\Package\AosDownloader</DefineConstants>
+    <Cultures>ru-RU</Cultures>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unicode Release|x86' ">
+    <OutputPath>..\..\..\..\..\Bin\$(Configuration)\v4.0\$(OutputName)\</OutputPath>
+    <IntermediateOutputPath>..\..\..\..\..\obj\$(Configuration)\v4.0\$(OutputName)\</IntermediateOutputPath>
+    <DefineConstants>Release;AspProjectDir=..\AosDownloadServer\obj\$(Configuration)\Package\AosDownloader</DefineConstants>
+    <Cultures>ru-RU</Cultures>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectGuid>{527c69be-9272-4e98-a9cd-361d8ac1f187}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AosDownloadServer.wxs" />
+    <Compile Include="Components.wxs" />
+    <Compile Include="Files.wxs" />
+    <Compile Include="IIS.wxs" />
+    <Compile Include="Product.wxs" />
+    <Compile Include="Service.wxs" />
+    <Compile Include="Shortcuts.wxs" />
+    <Compile Include="UI_AosDownloader.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixIIsExtension">
+      <HintPath>$(WixExtDir)\WixIIsExtension.dll</HintPath>
+      <Name>WixIIsExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Variables.wxi" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UtilExtension_ru-ru.wxl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AosDownloadServer\AosDownloadServer.csproj">
+      <Name>AosDownloadServer</Name>
+      <Project>{8da2ab93-40f7-4ecf-ac61-7fc2ea1f290c}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+      <WebProject>True</WebProject>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
+  <Target Name="EnsureWixToolsetInstalled" Condition=" '$(WixTargetsImported)' != 'true' ">
+    <Error Text="The WiX Toolset v3.11 (or newer) build tools must be installed to build this project. To download the WiX Toolset, see http://wixtoolset.org/releases/" />
+  </Target>
+  <Target Name="BeforeBuild">
+    <!-- Remove read-only attribute -->
+    <Exec Command="attrib -R %(ProjectReference.Filename).wxs" Condition="'%(ProjectReference.WebProject)'=='True'" />
+    <!-- Package web application using Web Deploy (msdeploy) -->
+    <MSBuild Projects="%(ProjectReference.FullPath)" Targets="Package" Properties="Configuration=$(Configuration);Platform=AnyCPU" Condition="'%(ProjectReference.WebProject)'=='True'" />
+    <ItemGroup>
+      <LinkerBindInputPaths Include="%(ProjectReference.RootDir)%(ProjectReference.Directory)obj\$(Configuration)\Package\AosDownloader\" />
+    </ItemGroup>
+    <!-- Generate a WiX installer file using Heat Tool -->
+    <!--HeatDirectory OutputFile="%(ProjectReference.Filename).wxs" 
+      Directory="%(ProjectReference.RootDir)%(ProjectReference.Directory)obj\$(Configuration)\Package\PackageTmp\" 
+      DirectoryRefId="INSTALLFOLDER" 
+      ComponentGroupName="%(ProjectReference.Filename)" 
+      AutogenerateGuids="True" 
+      SuppressCom="True" 
+      SuppressFragments="True" 
+      SuppressRegistry="True" 
+      ToolPath="$(WixToolPath)" 
+      Condition="'%(ProjectReference.WebProject)'=='True'" /-->
+    <!--HeatDirectory OutputFile="%(ProjectReference.Filename).wxs" Directory="%(ProjectReference.RootDir)%(ProjectReference.Directory)obj\$(Configuration)\Package\PackageTmp\" DirectoryRefId="INSTALLLOCATION" ComponentGroupName="AosAspFilesComponentGroup" PreprocessorVariable="var.AspProjectDir" GenerateGuidsNow="True" SuppressCom="True" SuppressFragments="True" SuppressRegistry="True" ToolPath="$(WixToolPath)" Condition="'%(ProjectReference.WebProject)'=='True'" /-->
+    <HeatDirectory OutputFile="%(ProjectReference.Filename).wxs" Directory="%(ProjectReference.RootDir)%(ProjectReference.Directory)obj\$(Configuration)\Package\AosDownloader\" DirectoryRefId="IISROOT" ComponentGroupName="AosAspFilesComponentGroup" PreprocessorVariable="var.AspProjectDir" GenerateGuidsNow="True" SuppressCom="True" SuppressFragments="True" SuppressRegistry="True" ToolPath="$(WixToolPath)" Condition="'%(ProjectReference.WebProject)'=='True'" />
+  </Target>
+  <!--PropertyGroup>
+    <HarvestDirectory>..\..\..\..\..\Bin\Unicode Debug\v4.0\AosP2PServer</HarvestDirectory>
+  </PropertyGroup-->
+  <!--Target Name="BeforeBuild">
+    <HeatDirectory OutputFile="$(ProjectDir)\AspFiles.wxs" Directory="$(HarvestDirectory)" ComponentGroupName="AspFilesComponentGroup" DirectoryRefId="AspFilesLocation" GenerateGuidsNow="true" SuppressCom="true" SuppressRegistry="true" PreprocessorVariable="var.AspProjectDir" SuppressRootDirectory="true" ToolPath="$(WixToolPath)" NoLogo="true" />
+  </Target-->
+  <!--Target Name="AfterBuild">
+	</Target-->
+</Project>

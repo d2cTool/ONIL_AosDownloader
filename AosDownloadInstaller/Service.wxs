@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Fragment>
+    <Component Id="AosDownloadClientService" Guid="{F5ABDD5D-5AD3-41FA-834B-24801F5EAD37}" Directory="INSTALLFOLDER">
+      <File Id="ServiceInstaller"
+            Name="AosP2PService.exe"
+            KeyPath="yes"
+            Vital="yes"
+            Source="..\..\..\..\..\Bin\Unicode Release\v4.0\AosDownloadService\AosDownloadService.exe" />
+      <ServiceInstall Id="ServiceInstaller"
+                      Type="ownProcess"
+                      Vital="yes"
+                      Name="AosDownloadService"
+                      DisplayName="AosDownloadService"
+                      Description="AosDownloadService"
+                      Start="auto"
+                      Account="LOCALSYSTEM"
+                      Interactive="no"
+                      ErrorControl="critical">
+        <util:ServiceConfig FirstFailureActionType="restart"
+                            SecondFailureActionType="restart"
+                            ThirdFailureActionType="none"
+                            RestartServiceDelayInSeconds="300"/>
+        <util:PermissionEx User="Everyone"
+                           ServiceChangeConfig="no"
+                           ServiceQueryConfig="no"
+                           ServiceEnumerateDependents="yes"
+                           ServiceStart="yes"
+                           ServiceStop="yes"
+                           ServicePauseContinue="no"
+                           ServiceInterrogate="no"
+                           ServiceQueryStatus="yes"
+                           ServiceUserDefinedControl="no"/>
+      </ServiceInstall>
+      <!--ServiceControl Id="StartService"
+                      Start="install"
+                      Stop="uninstall"
+                      Remove="uninstall"
+                      Name="AosDownloadService"
+                      Wait="yes" /-->
+      <ServiceControl Id="ServiceControl_Start"
+                      Name="AosDownloadService"
+                      Start="install"
+                      Wait="no" />
+      <ServiceControl Id="ServiceControl_Stop"
+                      Name="AosDownloadService"
+                      Stop="both"
+                      Remove="uninstall"
+                      Wait="yes" />
+    </Component>
+  </Fragment>
+</Wix>

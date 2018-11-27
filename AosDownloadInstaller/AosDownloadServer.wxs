@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="IISROOT">
+            <Directory Id="dir4F05AE5E8202590B5DF72466E1EB8B05" Name="AosDownloader">
+                <Component Id="cmp9DADD2AD2F0D735DB21B2F7C9329F78D" Guid="{74D26CDD-C4DE-4F0A-BFF2-BA3EE5E2310E}">
+                    <File Id="fil3306433E7FA116D0867CDBAACE4D40C4" KeyPath="yes" Source="$(var.AspProjectDir)\AosP2PFileSharingSettings.xml" />
+                </Component>
+                <Component Id="cmp8222FB97E41993F28AF9DC342DFBA515" Guid="{2295DF8D-70C1-4068-8250-5F891091FBC1}">
+                    <File Id="fil81734AA97F44BC755AF9BDAA81CABB65" KeyPath="yes" Source="$(var.AspProjectDir)\Global.asax" />
+                </Component>
+                <Component Id="cmpB6D6F9024801A04BA84555ACC683B6FB" Guid="{FC1F6DEC-E808-4C71-AA52-5635EB137E0F}">
+                    <File Id="filFED7F1919D9A3132509BA5885858DCDA" KeyPath="yes" Source="$(var.AspProjectDir)\Web.config" />
+                </Component>
+                <Directory Id="dir164923075D08EE759C674987790BC8CE" Name="bin">
+                    <Component Id="cmpE5836FB57D38F758592B80D6B54E59B8" Guid="{4E52F05A-C384-4FF5-853F-3724E3A8705C}">
+                        <File Id="fil967E468BDB0BB8C2A766F140BA7EE5AD" KeyPath="yes" Source="$(var.AspProjectDir)\bin\Antlr3.Runtime.dll" />
+                    </Component>
+                    <Component Id="cmp30F3FAFE0559BD9957983B5C4FACBE44" Guid="{0673C30F-5A3C-4314-89CF-55BCAC9F1285}">
+                        <File Id="fil48D61BF45A5D879D1805E2C9A472B0D6" KeyPath="yes" Source="$(var.AspProjectDir)\bin\Antlr3.Runtime.pdb" />
+                    </Component>
+                    <Component Id="cmpC391E99990239245643BED72640C854D" Guid="{0BA9FCD7-B7B7-472B-95A5-9BA6DCC5DE05}">
+                        <File Id="filB9968CBE491CA76F0ACEC74E96B38209" KeyPath="yes" Source="$(var.AspProjectDir)\bin\AosDownloadClient.dll" />
+                    </Component>
+                    <Component Id="cmpF2C91DA5D1802BD5D3C63D461DC3EB04" Guid="{CE111ED4-E4E3-4E5E-A46A-4B2C8C2E565F}">
+                        <File Id="filBD0C6F6247126D2D9055B6B59936964A" KeyPath="yes" Source="$(var.AspProjectDir)\bin\AosDownloadClient.pdb" />
+                    </Component>
+                    <Component Id="cmp62FBAA3A0AFCC89119399728F6FABEB7" Guid="{505CBAD2-6E0C-4B9F-AE1B-19A209845824}">
+                        <File Id="fil8802B25480DB7D13ED88AFDF872C4604" KeyPath="yes" Source="$(var.AspProjectDir)\bin\AosDownloadServer.dll" />
+                    </Component>
+                    <Component Id="cmpB2E0BC901AD4EC225985ED20CCD4460A" Guid="{AE29CA0D-331C-43B3-9453-D31AAF407E79}">
+                        <File Id="filBD501EBF74AD82DE47AE9170E154D960" KeyPath="yes" Source="$(var.AspProjectDir)\bin\AosDownloadServer.pdb" />
+                    </Component>
+                    <Component Id="cmp6CFBF541507D660E36144F9266B109A6" Guid="{5574FE51-6C88-42B4-88B2-67C3BACA82B0}">
+                        <File Id="fil445AAC232E6B0D8113DCF9ACAF1FAF15" KeyPath="yes" Source="$(var.AspProjectDir)\bin\AosP2PFileSharingSettings.xml" />
+                    </Component>
+                    <Component Id="cmp49964E34352018460DCB69DE06548C09" Guid="{62FDEE4D-7F52-461F-BAB4-25B9334F7381}">
+                        <File Id="fil510BE724D05D91B5CE325F60803E83AE" KeyPath="yes" Source="$(var.AspProjectDir)\bin\Microsoft.Web.Infrastructure.dll" />
+                    </Component>
+                    <Component Id="cmp2C2FB52921EE3ABB9E67A2536D9DFE1D" Guid="{7166A19F-D417-45C0-B8E0-D81F0B235F4F}">
+                        <File Id="filE9A92AD9993B01BFA29BBC2CF05EC32C" KeyPath="yes" Source="$(var.AspProjectDir)\bin\Newtonsoft.Json.dll" />
+                    </Component>
+                    <Component Id="cmpED03D0151C1E267049479D32A2756CF7" Guid="{41EF29EF-8CCA-4381-9558-823B3587E966}">
+                        <File Id="fil89274F3A12AD41D70B69C1E173A2E5AA" KeyPath="yes" Source="$(var.AspProjectDir)\bin\NLog.dll" />
+                    </Component>
+                    <Component Id="cmpE5DEC76660C3A4E736140EDCA5C5464B" Guid="{32161300-6D7F-4547-AA42-64DC585A2A71}">
+                        <File Id="fil964EF52D38F87746E888F0AD4C46DEBF" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.IO.dll" />
+                    </Component>
+                    <Component Id="cmp5B9A359C0F6B5068433FE522BA3FD930" Guid="{2B1DC3D7-C55C-4EE5-AD5E-7ABCB2BF1F97}">
+                        <File Id="filF7DE1479A9417CA90C0A755E920A2CE7" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Net.Http.dll" />
+                    </Component>
+                    <Component Id="cmpC4F9504D4C45E9ED38544D7C82A90560" Guid="{5DB86F34-1CBB-4266-A4D6-A6B0C268D89A}">
+                        <File Id="filDBA21989B7431D0C3742CC93F1E657DC" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Net.Http.Extensions.dll" />
+                    </Component>
+                    <Component Id="cmp2314E2ED381F0280A2F647D227E4951C" Guid="{06E7F9AA-AA1F-4DA1-9590-CC50877EBA92}">
+                        <File Id="filA4DC78D0961A7E4ACE5F552820C4BBB1" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Net.Http.Formatting.dll" />
+                    </Component>
+                    <Component Id="cmp37C1FA58791E799A2F43BC9C0C7E3186" Guid="{EBBE7BBE-20B6-4EFB-B66F-DD517F6432C3}">
+                        <File Id="filDFDB00C2999BC1F97E83ACD8558203CA" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Net.Http.Primitives.dll" />
+                    </Component>
+                    <Component Id="cmp5CC22ED076A29E299F76B20CA94C45B6" Guid="{5B8AC09D-4340-49F9-B8FD-D45F44A4032D}">
+                        <File Id="fil883C3155EA15AD75020528A8EA027829" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Net.Http.WebRequest.dll" />
+                    </Component>
+                    <Component Id="cmpE4D5E4FADC279395B0A93F657789DDA4" Guid="{22FE7753-AA21-41E7-A265-F09EFECC58DB}">
+                        <File Id="fil451B060A4BBA26966C03D9D7F7B2F980" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Runtime.dll" />
+                    </Component>
+                    <Component Id="cmp42CA04D37998F9E3D15B8916ED33040D" Guid="{8DF5E7EE-36B2-4FD5-9D91-066A2CE17324}">
+                        <File Id="filD134EC7F7CC35FBBE0F47C0614BAA3E3" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Threading.Tasks.dll" />
+                    </Component>
+                    <Component Id="cmp9E849F65AB7D36BEE60E4868357F9463" Guid="{E0AB708D-B457-45BA-8295-9A331DC7FD47}">
+                        <File Id="filC005AD2A7D41B21857B80C71007DB47A" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Web.Helpers.dll" />
+                    </Component>
+                    <Component Id="cmpA9EEAC98BA4B29D85E10664A6B84D449" Guid="{2CE52880-82F3-4FB0-83EB-D8BEAD64E21D}">
+                        <File Id="filD6AC6B1F74075D1C7D09F4ED651E69D9" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Web.Http.dll" />
+                    </Component>
+                    <Component Id="cmp352FDDED8153FF9B5F344BA47E6D3F62" Guid="{DB08F01E-4D4F-4702-A9EE-BDA6FFB4BC8A}">
+                        <File Id="fil7D145AEDF4FF3544E0B351C7F2A2F5E6" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Web.Http.WebHost.dll" />
+                    </Component>
+                    <Component Id="cmp4DF2AFEA090EFC2362CF665B6454604A" Guid="{91CACCEB-63FF-44AF-BA1B-87942207BDF8}">
+                        <File Id="fil7246F0638EFB71497F5BE7DE289AEBC0" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Web.Mvc.dll" />
+                    </Component>
+                    <Component Id="cmp18136B01365C405D3DA9EF0C598D11E2" Guid="{0AB9A297-6FA0-4FD9-9921-C59F0DC1840B}">
+                        <File Id="fil16F6B3103311A703DA302D79FF9773B7" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Web.Optimization.dll" />
+                    </Component>
+                    <Component Id="cmp6F3DA435BC82F0C29A3BFCB74E6B5938" Guid="{71295A3C-3CD1-43A8-8B7E-005F631B14E6}">
+                        <File Id="fil5E9F3FB323AE2D8288E15FAF8A9314F3" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Web.Razor.dll" />
+                    </Component>
+                    <Component Id="cmpC5538D65DD3F2723993CA71DAE7B27AF" Guid="{387DB0D5-D4AA-4794-AE28-C7464D7275F6}">
+                        <File Id="filF4122F2D6C1DB5C5C9EB44E9239A856B" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Web.WebPages.Deployment.dll" />
+                    </Component>
+                    <Component Id="cmpE9222437F5E112D65D1087CCB6CBEA84" Guid="{D2E92D6C-05F1-49D0-8D3A-878DE16AA1B6}">
+                        <File Id="filB41190E1810F55D2A0189FC5831B3910" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Web.WebPages.dll" />
+                    </Component>
+                    <Component Id="cmp6FECA40E33C07B862C8AF61129E3D76F" Guid="{BC43828A-2629-4505-9A7D-CA658A26ACF8}">
+                        <File Id="filEDA758B42FB3582837AD650AA32E9F30" KeyPath="yes" Source="$(var.AspProjectDir)\bin\System.Web.WebPages.Razor.dll" />
+                    </Component>
+                    <Component Id="cmp8B29FA1B3AD0CD35D2F112CA1064384B" Guid="{18921200-B2FF-453A-B0A1-726D89B34F0B}">
+                        <File Id="fil166B1D1240F913917924D70B7C75A031" KeyPath="yes" Source="$(var.AspProjectDir)\bin\WebGrease.dll" />
+                    </Component>
+                </Directory>
+                <Directory Id="dirCF80D69C27EB4D82E331DD85A5CBE22B" Name="Static">
+                    <Component Id="cmp63ECCE9408FA4EA93D0BB862379879AC" Guid="{4FE0B17B-FC77-4BD4-9813-D28A221D1C94}">
+                        <File Id="filB92106199731680DE0ABE0CD02EE4A5D" KeyPath="yes" Source="$(var.AspProjectDir)\Static\clients.aspx" />
+                    </Component>
+                    <Component Id="cmpFF12609AC710DE79C09A64AFC21E9056" Guid="{1B7F1D52-3E21-4E77-8A6B-D8F9CC4C7478}">
+                        <File Id="fil9B072DD48580036F8423671B85EFC26B" KeyPath="yes" Source="$(var.AspProjectDir)\Static\content.aspx" />
+                    </Component>
+                    <Component Id="cmp446C5A2E955FDC4CA72A73694B83921A" Guid="{37275A6B-1520-46AB-9D41-D1FA88B57C15}">
+                        <File Id="filA34D548FE081F2D11F823C06D68E336D" KeyPath="yes" Source="$(var.AspProjectDir)\Static\error.aspx" />
+                    </Component>
+                    <Component Id="cmpBA4518AB62EA93FC85B744C77E8054F2" Guid="{6B64A439-7543-4D29-AB68-DB93DA5623DA}">
+                        <File Id="fil1F3FA973EB911A75E817861BE4AD24FB" KeyPath="yes" Source="$(var.AspProjectDir)\Static\Site.Master" />
+                    </Component>
+                    <Component Id="cmp12747F0E0E59D4D6E2C10469F4B80ACF" Guid="{96F0E72D-5F40-4286-AF61-AEFC1524EDDD}">
+                        <File Id="filC93032EF4F5A357F6CB6A271F450131E" KeyPath="yes" Source="$(var.AspProjectDir)\Static\stats.aspx" />
+                    </Component>
+                    <Directory Id="dir2B9E9AA8277576BEE92E034A08485FB3" Name="imgs">
+                        <Component Id="cmp15C454583F1FBEE4E74C0BBA231069CA" Guid="{BEF55BE8-CA89-4263-81CA-B079F4C3983F}">
+                            <File Id="fil523D8A4921B4D4BF619456D8C1EBF8A6" KeyPath="yes" Source="$(var.AspProjectDir)\Static\imgs\faveicon.png" />
+                        </Component>
+                        <Component Id="cmpCBDF082E18BF8F4CDEB742562E07E5C4" Guid="{659C30BA-D4B9-4DB8-A4A6-D968D2AF8C71}">
+                            <File Id="filA07FC777FBE8E30D8C250F9976D3F3FC" KeyPath="yes" Source="$(var.AspProjectDir)\Static\imgs\logo_90.png" />
+                        </Component>
+                    </Directory>
+                </Directory>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="AosAspFilesComponentGroup">
+            <ComponentRef Id="cmp9DADD2AD2F0D735DB21B2F7C9329F78D" />
+            <ComponentRef Id="cmp8222FB97E41993F28AF9DC342DFBA515" />
+            <ComponentRef Id="cmpB6D6F9024801A04BA84555ACC683B6FB" />
+            <ComponentRef Id="cmpE5836FB57D38F758592B80D6B54E59B8" />
+            <ComponentRef Id="cmp30F3FAFE0559BD9957983B5C4FACBE44" />
+            <ComponentRef Id="cmpC391E99990239245643BED72640C854D" />
+            <ComponentRef Id="cmpF2C91DA5D1802BD5D3C63D461DC3EB04" />
+            <ComponentRef Id="cmp62FBAA3A0AFCC89119399728F6FABEB7" />
+            <ComponentRef Id="cmpB2E0BC901AD4EC225985ED20CCD4460A" />
+            <ComponentRef Id="cmp6CFBF541507D660E36144F9266B109A6" />
+            <ComponentRef Id="cmp49964E34352018460DCB69DE06548C09" />
+            <ComponentRef Id="cmp2C2FB52921EE3ABB9E67A2536D9DFE1D" />
+            <ComponentRef Id="cmpED03D0151C1E267049479D32A2756CF7" />
+            <ComponentRef Id="cmpE5DEC76660C3A4E736140EDCA5C5464B" />
+            <ComponentRef Id="cmp5B9A359C0F6B5068433FE522BA3FD930" />
+            <ComponentRef Id="cmpC4F9504D4C45E9ED38544D7C82A90560" />
+            <ComponentRef Id="cmp2314E2ED381F0280A2F647D227E4951C" />
+            <ComponentRef Id="cmp37C1FA58791E799A2F43BC9C0C7E3186" />
+            <ComponentRef Id="cmp5CC22ED076A29E299F76B20CA94C45B6" />
+            <ComponentRef Id="cmpE4D5E4FADC279395B0A93F657789DDA4" />
+            <ComponentRef Id="cmp42CA04D37998F9E3D15B8916ED33040D" />
+            <ComponentRef Id="cmp9E849F65AB7D36BEE60E4868357F9463" />
+            <ComponentRef Id="cmpA9EEAC98BA4B29D85E10664A6B84D449" />
+            <ComponentRef Id="cmp352FDDED8153FF9B5F344BA47E6D3F62" />
+            <ComponentRef Id="cmp4DF2AFEA090EFC2362CF665B6454604A" />
+            <ComponentRef Id="cmp18136B01365C405D3DA9EF0C598D11E2" />
+            <ComponentRef Id="cmp6F3DA435BC82F0C29A3BFCB74E6B5938" />
+            <ComponentRef Id="cmpC5538D65DD3F2723993CA71DAE7B27AF" />
+            <ComponentRef Id="cmpE9222437F5E112D65D1087CCB6CBEA84" />
+            <ComponentRef Id="cmp6FECA40E33C07B862C8AF61129E3D76F" />
+            <ComponentRef Id="cmp8B29FA1B3AD0CD35D2F112CA1064384B" />
+            <ComponentRef Id="cmp63ECCE9408FA4EA93D0BB862379879AC" />
+            <ComponentRef Id="cmpFF12609AC710DE79C09A64AFC21E9056" />
+            <ComponentRef Id="cmp446C5A2E955FDC4CA72A73694B83921A" />
+            <ComponentRef Id="cmpBA4518AB62EA93FC85B744C77E8054F2" />
+            <ComponentRef Id="cmp12747F0E0E59D4D6E2C10469F4B80ACF" />
+            <ComponentRef Id="cmp15C454583F1FBEE4E74C0BBA231069CA" />
+            <ComponentRef Id="cmpCBDF082E18BF8F4CDEB742562E07E5C4" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

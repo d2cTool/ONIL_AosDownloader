@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define ProductName = 'AosDownloader' ?>
+  <?define ProductVersion = '1.0.0' ?>
+  <?define ProductManufacturer = 'ОНИЛ АТО ДМ СЖАТ' ?>
+  <?define ProductUpgradeCode = 'BCBD2503-7DB7-4A71-9DC7-F8C5FAFEEC9B' ?>
+  <?define InstallLocation = 'AosDownloader' ?>
+  <!--?define VersionNumber="!(bind.FileVersion.AosP2PClient.exe)" ?-->
+  <?define WebServerPort = '8088' ?>
+  <?define WebAppName = 'AosDownloadSrv' ?>
+</Include>

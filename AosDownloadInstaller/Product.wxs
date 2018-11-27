@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <?include Variables.wxi?>
+
+  <Product Id="*" Name="$(var.ProductName)" Language="1049" Codepage="1251" Version="$(var.ProductVersion)" Manufacturer="$(var.ProductManufacturer)"
+         UpgradeCode="$(var.ProductUpgradeCode)">
+
+    <Package InstallerVersion="200" Compressed="yes" InstallPrivileges="elevated" InstallScope="perMachine" SummaryCodepage="1251" Manufacturer="$(var.ProductManufacturer)"
+             Description="Инсталлятор для приложения: $(var.ProductName)" Keywords="АОС-ШЧ"/>
+
+    <MajorUpgrade DowngradeErrorMessage="Новая версия приложения $(var.ProductName) уже установлена." />
+    <PropertyRef Id="NETFRAMEWORK40CLIENT" />
+    <Condition Message="Требуется установка .NET Framework 4 и выше">
+      Installed OR NETFRAMEWORK40CLIENT
+    </Condition>
+
+    <Media Id="1" Cabinet="$(var.ProductName).cab" EmbedCab="yes" CompressionLevel="high" />
+
+    <Feature Id="AosDownloadClient" Title="Клиент $(var.ProductName)" AllowAdvertise="no" Description="Клиент файлового загрузчика АОС-ШЧ" Absent="allow" ConfigurableDirectory="INSTALLFOLDER">
+      <ComponentGroupRef Id="AosDownloadClientGroup" Primary="yes" />
+    </Feature>
+    <Feature Id="AosDownloadServer" Title="Сервер $(var.ProductName)" AllowAdvertise="no" Description="Сервер файлового загрузчика АОС-ШЧ" Absent="allow" ConfigurableDirectory="INSTALLLOCATION">
+      <ComponentGroupRef Id="AosDownloadServerGroup" Primary="yes" />
+      <ComponentGroupRef Id="AosAspFilesComponentGroup" Primary="yes" />
+    </Feature>
+
+
+
+    <!--Property Id="WIXUI_INSTALLDIR" Value="AosDownloaderFolder"></Property-->
+    <Property Id="ApplicationFolderName" Value="$(var.ProductName)" />
+    <Property Id="WixAppFolder" Value="WixPerMachineFolder" />
+
+    <WixVariable Id="WixUISupportPerMachine" Value="1" />
+    <WixVariable Id="WixUISupportPerUser" Value="1" />
+    <UIRef Id="UI_AosDownloader"/>
+
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="IISROOT" Name="inetpub">
+        <Directory Id="INSTALLLOCATION" Name="$(var.ProductName)" />
+        <Directory Id="INSTALLDIR" Name="$(var.ProductName)" />
+      </Directory>
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="ONILAPPFOLDER" Name="ONIL">
+            <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)" />
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="STARTMENUFOLDER" Name="АОС-ШЧ" />
+      </Directory>
+    </Directory>
+  </Fragment>
+
+</Wix>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="STARTMENUFOLDER">
+      <Component Id="AosDownloadClientShortcuts" Guid="{DFA97C7E-E565-44D2-8D1E-7AB1E52ADB01}">
+        <Shortcut Id="UninstallAosDownloadClient"
+            Name="Uninstall AosDownload Client"
+            Description="Uninstall AosDowload Client"
+            Target="[System64Folder]msiexec.exe"
+            Arguments="/x [ProductCode]"/>
+
+        <RemoveFolder Id="STARTMENUFOLDER" On="uninstall"/>
+        <RegistryValue Root="HKCU"
+            Key="Software\MyCompany\ApplicationServer"
+            Name="installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes"/>
+      </Component>
+
+      <Component Id="AosDownloadServerShortcuts" Guid="{7552F7A0-136D-4676-9704-1D557F0231BD}">
+        <Shortcut Id="UninstallAosDownloadServer"
+            Name="Uninstall AosDownload Server"
+            Description="Uninstall AosDownload Server"
+            Target="[System64Folder]msiexec.exe"
+            Arguments="/x [ProductCode]"/>
+
+        <RegistryValue Root="HKCU"
+            Key="Software\MyCompany\ApplicationServer"
+            Name="installed"
+            Type="integer"
+            Value="1"
+            KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+	</Fragment>
+</Wix>

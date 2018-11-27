@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+  <base>
+    <path>C:/tmp/base/</path>
+    <refresh-timeout>5</refresh-timeout>
+    <clean-timeout>10</clean-timeout>
+    <is-server>true</is-server>
+  </base>
+  <http>
+    <ip>192.168.1.78</ip>
+    <port>8088</port>
+    <uri-path>AosDownloadSrv/api/Base/</uri-path>
+    <files-update-timeout>6</files-update-timeout>
+    <request-queue-size>300</request-queue-size>
+  </http>
+  <tcp>
+    <client-port>6766</client-port>
+    <p2p-listener-port>6767</p2p-listener-port>
+    <aos-listener-port>6768</aos-listener-port>
+    <max-parallelization-count>1</max-parallelization-count>
+  </tcp>
+</settings>

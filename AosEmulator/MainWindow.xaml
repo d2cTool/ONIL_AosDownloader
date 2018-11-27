@@ -1,0 +1,51 @@
+﻿<Window x:Class="AosEmulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AosEmulator"
+        mc:Ignorable="d"
+        Title="Aos Client Emulator" Height="450" Width="650">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Expander Header="Settings" Grid.Row="1" Grid.Column="0" IsExpanded="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Row="0" Grid.Column="0" Margin="5 5 5 5" HorizontalContentAlignment="Center" Content="Ip" Width="300" ToolTip="127.0.0.1"/>
+                <TextBox  Grid.Row="1" Grid.Column="0" Margin="5 5 5 5" IsReadOnly="False" TextAlignment="Center" Text="{Binding Path=Ip}"/>
+                <Label Grid.Row="0" Grid.Column="1" Margin="5 5 5 5" HorizontalContentAlignment="Center" Content="Port" Width="300" ToolTip="6767"/>
+                <TextBox  Grid.Row="1" Grid.Column="1" Margin="5 5 5 5" IsReadOnly="False" TextAlignment="Center" Text="{Binding Path=Port}"/>
+                <Button Grid.Row="2" Grid.ColumnSpan="2" Margin="5 5 5 5" Content="Connect" Command="{Binding ConnectBtnClicked}"/>
+
+
+                <Label Grid.Row="3" Grid.Column="0" Margin="5 5 5 5" HorizontalContentAlignment="Center" Content="File name" Width="300" ToolTip="tmp.zip"/>
+                <TextBox  Grid.Row="4" Grid.Column="0" Margin="5 5 5 5" IsReadOnly="False" TextAlignment="Center" Text="{Binding Path=FileName}"/>
+                <Label Grid.Row="3" Grid.Column="1" Margin="5 5 5 5" HorizontalContentAlignment="Center" Content="Priority" Width="300" ToolTip="1"/>
+                <TextBox  Grid.Row="4" Grid.Column="1" Margin="5 5 5 5" IsReadOnly="False" TextAlignment="Center" Text="{Binding Path=Priority}"/>
+                <Button Grid.Row="5" Grid.ColumnSpan="2" Margin="5 5 5 5" Content="Send" Command="{Binding SendBtnClicked}"/>
+            </Grid>
+        </Expander>
+        <Expander Header="Протокол" Grid.Row="2" Grid.Column="0" IsExpanded="True">
+            <TextBox IsReadOnly="True" Height="150" ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="Calibri" FontSize="11" Text="{Binding Path=Protocol}"/>
+        </Expander>
+    </Grid>
+</Window>

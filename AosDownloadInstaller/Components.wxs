@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <!--ComponentGroup Id="AosDownloadClientGroup" Directory="AosDownloaderFolder"-->
+    <ComponentGroup Id="AosDownloadClientGroup">
+      <ComponentRef Id="AosDownloadClientFileComponent"/>
+      <ComponentRef Id="AosDownloadClientShortcuts"/>
+      <ComponentRef Id="AosDownloadClientService"/>
+    </ComponentGroup>
+    <ComponentGroup Id="AosDownloadServerGroup">
+      <ComponentRef Id="AosDownloadServerShortcuts"/>
+      <ComponentRef Id="AosWebAppPoolComponent"/>
+      <ComponentRef Id="AosWebAppComponent"/>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

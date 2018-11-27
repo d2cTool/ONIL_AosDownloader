@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <DirectoryRef Id="INSTALLFOLDER" FileSource="..\..\..\..\..\Bin\Unicode Release\v4.0\AosDownloadService\">
+      <Component Id ="AosDownloadClientFileComponent" DiskId="1" Guid="{CB32B80E-C05B-40ED-AD33-3FA9D697B325}">
+        <File Id="AosDownloadClient.dll" Name="AosDownloadClient.dll"/>
+        <File Id="NLog.dll" Name="NLog.dll"/>
+        <File Id="NLog.xml" Name="NLog.xml"/>
+        <File Id="NLog.config" Name="NLog.config"/>
+        <!--File Id="AosP2PService.exe" Name="AosP2PService.exe"/-->
+        <File Id="AosP2PFileSharingSettings.xml" Name="AosP2PFileSharingSettings.xml"/>
+      </Component>
+    </DirectoryRef>
+	</Fragment>
+</Wix>

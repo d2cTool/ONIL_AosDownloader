@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="TestHttpSrv.Static.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Aos P2P File Sharing</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/png" href="imgs/faveicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css' />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="headerContent">
+        <nav class="navbar navbar-inverse navbar-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" rel="home" href="#" title="Aos P2P File Sharing">
+                        <img style="max-width: 100px; margin-top: -7px;" src="imgs/logo_90.png">
+                    </a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="content.aspx">Base content</a></li>
+                    <li><a href="clients.aspx">Clients</a></li>
+                    <li><a href="stats.aspx">Statistic</a></li>
+                    <li><a href="error.aspx">Errors</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="bodyContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <div id="footerContent">
+        <footer class="footer navbar-fixed-bottom font-small">
+            <div class="footer-copyright text-center py-3">© 2018 Copyright: <a href="http://onil-ato.ru/">ONIL ATO </a></div>
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </div>
+
+</body>
+</html>
